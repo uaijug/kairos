@@ -1,0 +1,18 @@
+{
+  "generator-jhipster": {
+    "baseName": "kairos",
+    "packageName": "br.com.uaijug.kairos",
+    "packageFolder": "br/com/uaijug/kairos",
+    "authenticationType": "token",
+    "hibernateCache": "ehcache",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mysql",
+    "useCompass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "javaVersion": "7"
+  }
+}

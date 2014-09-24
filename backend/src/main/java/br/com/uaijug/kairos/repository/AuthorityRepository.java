@@ -1,0 +1,10 @@
+package br.com.uaijug.kairos.repository;
+
+import br.com.uaijug.kairos.domain.Authority;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * Spring Data JPA repository for the Authority entity.
+ */
+public interface AuthorityRepository extends JpaRepository<Authority, String> {
+}
