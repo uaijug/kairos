@@ -20,7 +20,12 @@ import java.util.Set;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User extends AbstractAuditingEntity implements Serializable {
 
-    @NotNull
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -3666146593055380205L;
+
+	@NotNull
     @Size(min = 0, max = 50)
     @Id
     @Column(length = 50)

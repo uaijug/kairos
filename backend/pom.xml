@@ -245,8 +245,7 @@
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>${HikariCP.version}</version>
+            <artifactId>HikariCP</artifactId>            
             <exclusions>
                 <exclusion>
                     <groupId>com.sun</groupId>
@@ -315,8 +314,7 @@
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-            <version>${liquibase.version}</version>
+            <artifactId>liquibase-core</artifactId>            
             <exclusions>
                 <exclusion>
 		    <groupId>org.eclipse.jetty</groupId>
@@ -346,13 +344,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>${spring-boot.version}</version>
+            <artifactId>spring-boot-autoconfigure</artifactId>            
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-loader-tools</artifactId>
-            <version>${spring-boot.version}</version>
+            <artifactId>spring-boot-loader-tools</artifactId>           
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -435,8 +431,7 @@
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-            <version>${json-path.version}</version>
+            <artifactId>json-path</artifactId>           
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -449,6 +444,11 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+        	<groupId>org.neo4j</groupId>
+        	<artifactId>neo4j-cypher-compiler-2.1</artifactId>
+        	<version>2.1.2</version>
         </dependency>
     </dependencies>
     <build>
