@@ -1,5 +1,6 @@
 Kairós
 ======
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/uaijug/kairos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Sistema de gestão dos eventos do UaiJUG.
 
