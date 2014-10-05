@@ -57,11 +57,8 @@ public class SpeakerResource {
 	 * GET /rest/speakers/:id -> get the "id" speaker.
 	 */
 	@RequestMapping(value = "/rest/speakers/{id}", method = RequestMethod.GET, produces = MediaTypeUtils.APPLICATION_JSON_UTF8_VALUE)
-	// @RequestMapping(value = "/rest/speakers/{id}", method =
-	// RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	@Timed
-	public ResponseEntity<Speaker> get(@PathVariable Long id,
-			HttpServletResponse response) {
+	public ResponseEntity<Speaker> get(@PathVariable Long id, HttpServletResponse response) {
 		this.log.debug("REST request to get Speaker : {}", id);
 		Speaker speaker = this.speakerRepository.findOne(id);
 		if (speaker == null) {

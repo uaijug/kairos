@@ -2,6 +2,7 @@ package br.com.uaijug.kairos.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,13 +26,28 @@ public class Speaker implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "id")
 	private Long id;
 
 	@Size(min = 1, max = 255)
+	@Column(name = "name")
 	private String name;
 
 	@Size(min = 1, max = 144)
+	@Column(name = "description")
 	private String description;
+
+	@Size(max = 1000)
+	@Column(name = "long_description")
+	private String longDescription;
+
+	@Size(max = 255)
+	@Column(name = "photo")
+	private String photo;
+
+	@Size(max = 255)
+	@Column(name = "thumb")
+	private String thumb;
 
 	public Long getId() {
 		return this.id;
@@ -55,6 +71,30 @@ public class Speaker implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getLongDescription() {
+		return this.longDescription;
+	}
+
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
+	}
+
+	public String getPhoto() {
+		return this.photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getThumb() {
+		return this.thumb;
+	}
+
+	public void setThumb(String thumb) {
+		this.thumb = thumb;
 	}
 
 	@Override
@@ -82,8 +122,22 @@ public class Speaker implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Speaker [id=" + this.id + ", name=" + this.name
-				+ ", description=" + this.description + "]";
+		return "Speaker [id=" + this.id + ", name=" + this.name + ", description=" + this.description
+				+ ", longDescription=" + this.longDescription + ", photo=" + this.photo + ", thumb=" + this.thumb + "]";
 	}
 
+	/**
+	 * Return true if value is true or false if is false
+	 * 
+	 * @param value
+	 *            the boolean value
+	 * @return true if is true
+	 */
+	public boolean isTrue(boolean value) {
+		if (value == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

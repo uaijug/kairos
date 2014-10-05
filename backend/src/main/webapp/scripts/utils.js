@@ -92,6 +92,14 @@ angular.module('kairosAppUtils', [])
             }
         };
     })
+    .factory('UrlLanguageStorage', ['$location', function($location) {
+    return {
+        set: function (name, value) {},
+        get: function (name) {
+            return $location.search()['lang']
+        }
+    };
+    }])
     .factory('AccessToken', function($location, $http, StorageService, $rootScope) {
             var TOKEN = 'token';
             var service = {};

@@ -3,7 +3,7 @@
     <h2>Speakers</h2>
 
     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveSpeakerModal" ng-click="clear()">
-        <span class="glyphicon glyphicon-flash"></span> Create a new Speaker
+        <span class="glyphicon glyphicon-flash"></span> Create a new Speaker 2
     </button>
     <div class="modal fade" id="saveSpeakerModal" tabindex="-1" role="dialog" aria-labelledby="mySpeakerLabel"
          aria-hidden="true">
@@ -19,23 +19,27 @@
                         <h4 class="modal-title" id="mySpeakerLabel">Create or edit a Speaker</h4>
                     </div>
                     <div class="modal-body">
+                        
                         <div class="form-group">
                             <label>ID</label>
                             <input type="text" class="form-control" name="id"
                                    ng-model="speaker.id" readonly>
                         </div>
 
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control" name="name"
-                                   ng-model="speaker.name" ng-minlength=1 ng-maxlength=255 required>
-                        </div>
+                        <uai-input-text name="name" label="Name" ng-model="speaker.name"></uai-input-text>                     
 
                         <div class="form-group">
                             <label>Description</label>
                             <input type="text" class="form-control" name="description"
                                    ng-model="speaker.description"  ng-minlength=1 ng-maxlength=144 required>
                         </div>
+                        
+                        <div class="form-group">
+                        	<label for="">Long description</label>
+                            <input type="text" class="form-control" name="longDescription" ng-model="speaker.longDescription">                            
+                        </div>
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
@@ -49,7 +53,9 @@
             </div>
         </div>
     </div>
-
+    <div>
+        {{scope.speaker | json}}
+    </div>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

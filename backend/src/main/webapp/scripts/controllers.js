@@ -8,19 +8,14 @@ kairosApp.controller('MainController', function ($scope) {
 kairosApp.controller('AdminController', function ($scope) {
     });
 
-kairosApp.controller('LanguageController', function ($scope, $translate, LanguageService) {
-        $scope.changeLanguage = function (languageKey) {
-            $translate.use(languageKey);
-
-            LanguageService.getBy(languageKey).then(function(languages) {
-                $scope.languages = languages;
-            });
+kairosApp.controller('LanguageController', ['$scope','$translate','$location', function($scope, $translate, $location) {
+        $scope.changeLanguage = function (locale) {
+            $translate.use(locale);
+            $location.search('lang', locale);           
         };
 
-        LanguageService.getBy().then(function (languages) {
-            $scope.languages = languages;
-        });
-    });
+        $scope.languages = {'pt':'Português','en':'English'};
+    }]);
 
 kairosApp.controller('MenuController', function ($scope) {
     });

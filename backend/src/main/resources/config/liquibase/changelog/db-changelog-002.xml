@@ -14,6 +14,11 @@
 				<constraints nullable="false" />
 			</column>
 			
+			<column name="long_description" type="varchar(1000)" />
+				
+			<column name="photo" type="varchar(255)" />
+			
+			<column name="thumb" type="varchar(255)" />		
 		</createTable>
 	</changeSet>
 </databaseChangeLog>
