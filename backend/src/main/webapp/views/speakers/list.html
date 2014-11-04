@@ -1,0 +1,40 @@
+<div>
+
+    <h2 ng-translate="speaker.title">Speakers</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveSpeakerModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> <span ng-translate="speaker.create">Create a new Speaker</span>
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="speaker in speakers">
+                    <td>{{speaker.id}}</td>
+                    <td>{{speaker.name}}</td>
+                    <td>{{speaker.description}}</td>
+                    <td>
+                        <button type="submit"
+                                ng-click="update(speaker.id)"
+                                class="btn">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(speaker.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -4,7 +4,7 @@ kairosApp
     .config(function ($routeProvider, $httpProvider, $translateProvider, USER_ROLES) {
             $routeProvider
                 .when('/speaker', {
-                    templateUrl: 'views/speakers.html',
+                    templateUrl: 'views/speakers/list.html',
                     controller: 'SpeakerController',
                     resolve:{
                         resolvedSpeaker: ['Speaker', function (Speaker) {
