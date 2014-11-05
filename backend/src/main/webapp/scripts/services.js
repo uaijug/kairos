@@ -29,10 +29,15 @@ kairosApp.factory('Sessions', function ($resource) {
         });
     });
 
-kairosApp.factory('MetricsService',function ($resource) {
-        return $resource('metrics/metrics', {}, {
-            'get': { method: 'GET'}
-        });
+kairosApp.factory('MetricsService',function ($http) {
+    		return {
+            get: function() {
+                var promise = $http.get('metrics/metrics').then(function(response){
+                    return response.data;
+                });
+                return promise;
+            }
+        };
     });
 
 kairosApp.factory('ThreadDumpService', function ($http) {
@@ -120,8 +125,14 @@ kairosApp.factory('AuthenticationSharedService', function ($rootScope, $http, au
                         authService.loginConfirmed(data);
                     });
                 }).error(function (data, status, headers, config) {
-                    $rootScope.authenticationError = true;
+                    $rootScope.authenticated = false;
                     Session.invalidate();
+                    AccessToken.remove();
+                    delete httpHeaders.common['Authorization'];
+
+                    if (!$rootScope.isAuthorized(authorizedRoles)) {
+                        $rootScope.$broadcast('event:auth-loginRequired', data);
+                    }
                 });
             },
             valid: function (authorizedRoles) {
@@ -134,25 +145,31 @@ kairosApp.factory('AuthenticationSharedService', function ($rootScope, $http, au
                 }).success(function (data, status, headers, config) {
                     if (!Session.login || AccessToken.get() != undefined) {
                         if (AccessToken.get() == undefined || AccessToken.expired()) {
-                            $rootScope.authenticated = false
+                            $rootScope.$broadcast("event:auth-loginRequired");
                             return;
                         }
                         Account.get(function(data) {
                             Session.create(data.login, data.firstName, data.lastName, data.email, data.roles);
                             $rootScope.account = Session;
-
                             if (!$rootScope.isAuthorized(authorizedRoles)) {
-                                event.preventDefault();
+                                // user is not allowed
+                               $rootScope.$broadcast("event:auth-notAuthorized");
+                            } else {
+                                $rootScope.$broadcast("event:auth-loginConfirmed");
+                            }
+                        });
+                    }else{
+                        if (!$rootScope.isAuthorized(authorizedRoles)) {
                                 // user is not allowed
                                 $rootScope.$broadcast("event:auth-notAuthorized");
-                            }
-
-                            $rootScope.authenticated = true;
-                        });
+                        } else {
+                                $rootScope.$broadcast("event:auth-loginConfirmed");
+                        }
                     }
-                    $rootScope.authenticated = !!Session.login;
                 }).error(function (data, status, headers, config) {
-                    $rootScope.authenticated = false;
+                    if (!$rootScope.isAuthorized(authorizedRoles)) {
+                        $rootScope.$broadcast('event:auth-loginRequired', data);
+                    }
                 });
             },
             isAuthorized: function (authorizedRoles) {

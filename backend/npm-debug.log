@@ -1,0 +1,203 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn package.json kairos@0.0.0 No repository field.
+6 verbose readDependencies using package.json deps
+7 verbose install where, deps [ 'D:\\Dropbox\\Repositorio\\github\\kairos\\backend',
+7 verbose install   [ 'grunt',
+7 verbose install     'grunt-autoprefixer',
+7 verbose install     'grunt-build-control',
+7 verbose install     'grunt-wiredep',
+7 verbose install     'grunt-cli',
+7 verbose install     'grunt-contrib-copy',
+7 verbose install     'grunt-concurrent',
+7 verbose install     'grunt-connect-proxy',
+7 verbose install     'grunt-contrib-clean',
+7 verbose install     'grunt-contrib-concat',
+7 verbose install     'grunt-contrib-connect',
+7 verbose install     'grunt-contrib-cssmin',
+7 verbose install     'grunt-contrib-htmlmin',
+7 verbose install     'grunt-contrib-imagemin',
+7 verbose install     'grunt-contrib-jshint',
+7 verbose install     'grunt-contrib-uglify',
+7 verbose install     'grunt-contrib-watch',
+7 verbose install     'grunt-modernizr',
+7 verbose install     'grunt-ng-annotate',
+7 verbose install     'grunt-rev',
+7 verbose install     'grunt-svgmin',
+7 verbose install     'grunt-text-replace',
+7 verbose install     'grunt-usemin',
+7 verbose install     'load-grunt-tasks',
+7 verbose install     'grunt-karma',
+7 verbose install     'time-grunt',
+7 verbose install     'event-stream',
+7 verbose install     'karma-script-launcher',
+7 verbose install     'karma-chrome-launcher',
+7 verbose install     'karma-html2js-preprocessor',
+7 verbose install     'karma-jasmine',
+7 verbose install     'karma-requirejs',
+7 verbose install     'karma-phantomjs-launcher',
+7 verbose install     'karma',
+7 verbose install     'bower',
+7 verbose install     'generator-jhipster',
+7 verbose install     'lodash',
+7 verbose install     'zeparser' ] ]
+8 info preinstall kairos@0.0.0
+9 warn package.json karma-chrome-launcher@0.1.4 No README data
+10 warn package.json karma-phantomjs-launcher@0.1.4 No README data
+11 verbose readDependencies using package.json deps
+12 verbose already installed skipping grunt@0.4.5 D:\Dropbox\Repositorio\github\kairos\backend
+13 verbose already installed skipping grunt-autoprefixer@0.7.5 D:\Dropbox\Repositorio\github\kairos\backend
+14 verbose already installed skipping grunt-build-control@0.1.3 D:\Dropbox\Repositorio\github\kairos\backend
+15 verbose already installed skipping grunt-wiredep@1.8.0 D:\Dropbox\Repositorio\github\kairos\backend
+16 verbose already installed skipping grunt-cli@0.1.13 D:\Dropbox\Repositorio\github\kairos\backend
+17 verbose already installed skipping grunt-contrib-copy@0.5.0 D:\Dropbox\Repositorio\github\kairos\backend
+18 verbose already installed skipping grunt-concurrent@0.5.0 D:\Dropbox\Repositorio\github\kairos\backend
+19 verbose already installed skipping grunt-connect-proxy@0.1.10 D:\Dropbox\Repositorio\github\kairos\backend
+20 verbose already installed skipping grunt-contrib-clean@0.5.0 D:\Dropbox\Repositorio\github\kairos\backend
+21 verbose already installed skipping grunt-contrib-concat@0.4.0 D:\Dropbox\Repositorio\github\kairos\backend
+22 verbose already installed skipping grunt-contrib-connect@0.8.0 D:\Dropbox\Repositorio\github\kairos\backend
+23 verbose already installed skipping grunt-contrib-cssmin@0.9.0 D:\Dropbox\Repositorio\github\kairos\backend
+24 verbose already installed skipping grunt-contrib-htmlmin@0.3.0 D:\Dropbox\Repositorio\github\kairos\backend
+25 verbose already installed skipping grunt-contrib-imagemin@0.7.1 D:\Dropbox\Repositorio\github\kairos\backend
+26 verbose already installed skipping grunt-contrib-jshint@0.10.0 D:\Dropbox\Repositorio\github\kairos\backend
+27 verbose already installed skipping grunt-contrib-uglify@0.4.0 D:\Dropbox\Repositorio\github\kairos\backend
+28 verbose already installed skipping grunt-contrib-watch@0.6.1 D:\Dropbox\Repositorio\github\kairos\backend
+29 verbose already installed skipping grunt-modernizr@0.5.2 D:\Dropbox\Repositorio\github\kairos\backend
+30 verbose already installed skipping grunt-ng-annotate@0.3.2 D:\Dropbox\Repositorio\github\kairos\backend
+31 verbose already installed skipping grunt-rev@0.1.0 D:\Dropbox\Repositorio\github\kairos\backend
+32 verbose already installed skipping grunt-svgmin@0.4.0 D:\Dropbox\Repositorio\github\kairos\backend
+33 verbose already installed skipping grunt-text-replace@0.3.12 D:\Dropbox\Repositorio\github\kairos\backend
+34 verbose already installed skipping grunt-usemin@2.2.0 D:\Dropbox\Repositorio\github\kairos\backend
+35 verbose already installed skipping load-grunt-tasks@0.5.0 D:\Dropbox\Repositorio\github\kairos\backend
+36 verbose already installed skipping grunt-karma@0.8.3 D:\Dropbox\Repositorio\github\kairos\backend
+37 verbose already installed skipping time-grunt@0.3.2 D:\Dropbox\Repositorio\github\kairos\backend
+38 verbose already installed skipping event-stream@3.1.5 D:\Dropbox\Repositorio\github\kairos\backend
+39 verbose already installed skipping karma-script-launcher@0.1.0 D:\Dropbox\Repositorio\github\kairos\backend
+40 verbose already installed skipping karma-chrome-launcher@0.1.4 D:\Dropbox\Repositorio\github\kairos\backend
+41 verbose already installed skipping karma-html2js-preprocessor@0.1.0 D:\Dropbox\Repositorio\github\kairos\backend
+42 verbose already installed skipping karma-jasmine@0.2.2 D:\Dropbox\Repositorio\github\kairos\backend
+43 verbose already installed skipping karma-requirejs@0.2.2 D:\Dropbox\Repositorio\github\kairos\backend
+44 verbose already installed skipping karma-phantomjs-launcher@0.1.4 D:\Dropbox\Repositorio\github\kairos\backend
+45 verbose already installed skipping karma@0.12.16 D:\Dropbox\Repositorio\github\kairos\backend
+46 verbose already installed skipping bower@1.3.5 D:\Dropbox\Repositorio\github\kairos\backend
+47 verbose already installed skipping generator-jhipster@1.6.0 D:\Dropbox\Repositorio\github\kairos\backend
+48 verbose already installed skipping lodash@2.4.1 D:\Dropbox\Repositorio\github\kairos\backend
+49 verbose already installed skipping zeparser@0.0.7 D:\Dropbox\Repositorio\github\kairos\backend
+50 silly resolved []
+51 info build D:\Dropbox\Repositorio\github\kairos\backend
+52 verbose linkStuff [ false,
+52 verbose linkStuff   false,
+52 verbose linkStuff   false,
+52 verbose linkStuff   'D:\\Dropbox\\Repositorio\\github\\kairos' ]
+53 info linkStuff kairos@0.0.0
+54 verbose linkBins kairos@0.0.0
+55 verbose linkMans kairos@0.0.0
+56 verbose rebuildBundles kairos@0.0.0
+57 verbose rebuildBundles [ '.bin',
+57 verbose rebuildBundles   'bower',
+57 verbose rebuildBundles   'event-stream',
+57 verbose rebuildBundles   'generator-jhipster',
+57 verbose rebuildBundles   'grunt',
+57 verbose rebuildBundles   'grunt-autoprefixer',
+57 verbose rebuildBundles   'grunt-build-control',
+57 verbose rebuildBundles   'grunt-cli',
+57 verbose rebuildBundles   'grunt-concurrent',
+57 verbose rebuildBundles   'grunt-connect-proxy',
+57 verbose rebuildBundles   'grunt-contrib-clean',
+57 verbose rebuildBundles   'grunt-contrib-concat',
+57 verbose rebuildBundles   'grunt-contrib-connect',
+57 verbose rebuildBundles   'grunt-contrib-copy',
+57 verbose rebuildBundles   'grunt-contrib-cssmin',
+57 verbose rebuildBundles   'grunt-contrib-htmlmin',
+57 verbose rebuildBundles   'grunt-contrib-imagemin',
+57 verbose rebuildBundles   'grunt-contrib-jshint',
+57 verbose rebuildBundles   'grunt-contrib-uglify',
+57 verbose rebuildBundles   'grunt-contrib-watch',
+57 verbose rebuildBundles   'grunt-karma',
+57 verbose rebuildBundles   'grunt-modernizr',
+57 verbose rebuildBundles   'grunt-ng-annotate',
+57 verbose rebuildBundles   'grunt-rev',
+57 verbose rebuildBundles   'grunt-svgmin',
+57 verbose rebuildBundles   'grunt-text-replace',
+57 verbose rebuildBundles   'grunt-usemin',
+57 verbose rebuildBundles   'grunt-wiredep',
+57 verbose rebuildBundles   'karma',
+57 verbose rebuildBundles   'karma-chrome-launcher',
+57 verbose rebuildBundles   'karma-html2js-preprocessor',
+57 verbose rebuildBundles   'karma-jasmine',
+57 verbose rebuildBundles   'karma-phantomjs-launcher',
+57 verbose rebuildBundles   'karma-requirejs',
+57 verbose rebuildBundles   'karma-script-launcher',
+57 verbose rebuildBundles   'load-grunt-tasks',
+57 verbose rebuildBundles   'lodash',
+57 verbose rebuildBundles   'requirejs',
+57 verbose rebuildBundles   'time-grunt',
+57 verbose rebuildBundles   'yo',
+57 verbose rebuildBundles   'zeparser' ]
+58 verbose rebuild bundle D:\Dropbox\Repositorio\github\kairos\backend\node_modules\requirejs
+59 info build D:\Dropbox\Repositorio\github\kairos\backend\node_modules\requirejs
+60 info preinstall requirejs@2.1.15
+61 verbose linkStuff [ false,
+61 verbose linkStuff   false,
+61 verbose linkStuff   false,
+61 verbose linkStuff   'D:\\Dropbox\\Repositorio\\github\\kairos\\backend\\node_modules' ]
+62 info linkStuff requirejs@2.1.15
+63 verbose linkBins requirejs@2.1.15
+64 verbose link bins [ { 'r.js': './bin/r.js' },
+64 verbose link bins   'D:\\Dropbox\\Repositorio\\github\\kairos\\backend\\node_modules\\.bin',
+64 verbose link bins   false ]
+65 verbose linkMans requirejs@2.1.15
+66 verbose rebuildBundles requirejs@2.1.15
+67 info install requirejs@2.1.15
+68 info postinstall requirejs@2.1.15
+69 verbose rebuild bundle D:\Dropbox\Repositorio\github\kairos\backend\node_modules\yo
+70 info build D:\Dropbox\Repositorio\github\kairos\backend\node_modules\yo
+71 info preinstall yo@1.2.1
+72 verbose linkStuff [ false,
+72 verbose linkStuff   false,
+72 verbose linkStuff   false,
+72 verbose linkStuff   'D:\\Dropbox\\Repositorio\\github\\kairos\\backend\\node_modules' ]
+73 info linkStuff yo@1.2.1
+74 warn prefer global yo@1.2.1 should be installed with -g
+75 verbose linkBins yo@1.2.1
+76 verbose link bins [ { yo: 'cli.js' },
+76 verbose link bins   'D:\\Dropbox\\Repositorio\\github\\kairos\\backend\\node_modules\\.bin',
+76 verbose link bins   false ]
+77 verbose linkMans yo@1.2.1
+78 verbose rebuildBundles yo@1.2.1
+79 verbose rebuildBundles [ '.bin',
+79 verbose rebuildBundles   'async',
+79 verbose rebuildBundles   'chalk',
+79 verbose rebuildBundles   'findup',
+79 verbose rebuildBundles   'fullname',
+79 verbose rebuildBundles   'insight',
+79 verbose rebuildBundles   'is-root',
+79 verbose rebuildBundles   'multiline',
+79 verbose rebuildBundles   'nopt',
+79 verbose rebuildBundles   'opn',
+79 verbose rebuildBundles   'shelljs',
+79 verbose rebuildBundles   'string-length',
+79 verbose rebuildBundles   'sudo-block',
+79 verbose rebuildBundles   'update-notifier',
+79 verbose rebuildBundles   'yeoman-generator',
+79 verbose rebuildBundles   'yosay' ]
+80 info install yo@1.2.1
+81 info postinstall yo@1.2.1
+82 verbose unsafe-perm in lifecycle true
+83 info install kairos@0.0.0
+84 info postinstall kairos@0.0.0
+85 info prepublish kairos@0.0.0
+86 error peerinvalid The package yo does not satisfy its siblings' peerDependencies requirements!
+86 error peerinvalid Peer generator-jhipster@1.6.0 wants yo@>=1.3.0
+87 error System Windows_NT 6.1.7601
+88 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+89 error cwd D:\Dropbox\Repositorio\github\kairos\backend
+90 error node -v v0.10.32
+91 error npm -v 1.4.28
+92 error code EPEERINVALID
+93 verbose exit [ 1, true ]

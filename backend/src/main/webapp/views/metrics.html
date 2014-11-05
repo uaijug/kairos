@@ -5,55 +5,8 @@
     <button type="button" class="btn btn-primary" ng-click="refresh()"><span class="glyphicon glyphicon-refresh"></span>&nbsp;{{'metrics.refresh.button' | translate}}</button>
 </p>
 
-<h3 translate="metrics.health.title">Health Checks</h3>
-<div id="healthCheck" class="row">
-    <div class="col-md-3" ng-show="healthCheck.db.status == 'UP'">
-        <div class="alert alert-success"><strong translate="metrics.health.database">Database: </strong>OK</div>
-    </div>
-    <div class="col-md-4" ng-show="healthCheck.db.status != 'UP'">
-        <div class="alert alert-danger">
-            <strong translate="metrics.health.database">Database: </strong>ERROR
-            <span ng-show="healthCheck.db.error">
-                <a class="hand" ng-click="showDatabaseException = !showDatabaseException">
-                    <i class="glyphicon glyphicon-eye-open"></i>
-                </a>
-                <div class="popover" ng-show="showDatabaseException">
-                    <div class="popover-title">
-                        <h4>{{'metrics.health.stacktrace' | translate}}<button type="button" class="close" ng-click="showDatabaseException = !showDatabaseException">x</button></h4>
-                    </div>
-                    <div class="popover-content">
-                        <pre>{{healthCheck.db.error}}</pre>
-                    </div>
-                </div>
-            </span>
-
-        </div>
-    </div>
-    <div class="col-md-3" ng-show="healthCheck.mail.status == 'UP'" >
-        <div class="alert alert-success"><strong translate="metrics.health.email">Email: </strong>OK</div>
-    </div>
-    <div class="col-md-4" ng-show="healthCheck.mail.status != 'UP'">
-        <div class="alert alert-danger">
-            <strong translate="metrics.health.email">Email: </strong>ERROR
-            <span ng-show="healthCheck.mail.error">
-                <a class="hand" ng-click="showEmailException = !showEmailException">
-                    <i class="glyphicon glyphicon-eye-open"></i>
-                </a>
-                <div class="popover" ng-show="showEmailException">
-                    <div class="popover-title">
-                        <h4>{{'metrics.health.stacktrace' | translate}}<button type="button" class="close" ng-click="showEmailException = !showEmailException">x</button></h4>
-                    </div>
-                    <div class="popover-content">
-                        <pre>{{healthCheck.mail.error}}</pre>
-                    </div>
-                </div>
-            </span>
-        </div>
-    </div>
-</div>
-
 <h3 translate="metrics.jvm.title">JVM Metrics</h3>
-<div class="row">
+<div class="row" ng-hide="updatingMetrics">
     <div class="col-md-4">
         <b translate="metrics.jvm.memory.title">Memory</b>
         <p>{{'metrics.jvm.memory.total' | translate}} ({{metrics.gauges['jvm.memory.total.used'].value / 1000000 | number:0}}M / {{metrics.gauges['jvm.memory.total.max'].value / 1000000 | number:0}}M)</p>
@@ -150,6 +103,7 @@
         </div>
     </div>
 </div>
+<div class="well well-lg" ng-show="updatingMetrics" translate="metrics.updating">Updating...</div>
 
 <h3 translate="metrics.jvm.http.title">HTTP requests (events per second)</h3>
 <p>{{'metrics.jvm.http.active' | translate}} <b>{{metrics.counters['com.codahale.metrics.servlet.AbstractInstrumentedFilter.activeRequests'].count | number:0}}</b> - {{'metrics.jvm.http.total' | translate}} <b>{{metrics.timers['com.codahale.metrics.servlet.AbstractInstrumentedFilter.requests'].count | number:0}}</b></p>
@@ -174,7 +128,7 @@
                          aria-valuenow="{{metrics.meters['com.codahale.metrics.servlet.AbstractInstrumentedFilter.responseCodes.ok'].count * 100 / metrics.timers['com.codahale.metrics.servlet.AbstractInstrumentedFilter.requests'].count}}"
                          aria-valuemin="0"
                          aria-valuemax="{{metrics.timers['com.codahale.metrics.servlet.AbstractInstrumentedFilter.requests'].count}}"
-                         style="width: {{(metrics.meters['com.codahale.metrics.servlet.AbstractInstrumentedFilter.responseCodes.ok'].count * 100 / metrics.timers['com.codahale.metrics.servlet.AbstractInstrumentedFilter.requests'].count) | number:0}}%" >
+                         style="width: {{(metrics.meters['com.codahale.metrics.servlet.AbstractInstrumentedFilter.responseCodes.ok'].count * 100 / metrics.timers['com.codahale.metrics.servlet.AbstractInstrumentedFilter.requests'].count) | number:0}}%">
                         {{metrics.meters['com.codahale.metrics.servlet.AbstractInstrumentedFilter.responseCodes.ok'].count}}
                     </div>
             </td>

@@ -1,0 +1,106 @@
+<div>
+
+    <h2>Events</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveEventModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Event
+    </button>
+    <div class="modal fade" id="saveEventModal" tabindex="-1" role="dialog" aria-labelledby="myEventLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate show-validation
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myEventLabel">Create or edit a Event</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="event.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control" ng-minlength=1
+                                   ng-model="event.name">
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" class="form-control"
+                                   ng-model="event.description">
+                        </div>
+                        <div class="form-group">
+                            <label>AsWillBe</label>
+                            <input type="text" class="form-control"
+                                   ng-model="event.asWillBe">
+                        </div>
+                        <div class="form-group">
+                            <label>StartDate</label>
+                            <input type="date" class="form-control"
+                                   ng-model="event.startDate">
+                        </div>
+                        <div class="form-group">
+                            <label>EndDate</label>
+                            <input type="date" class="form-control"
+                                   ng-model="event.endDate">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>AsWillBe</th>
+                    <th>StartDate</th>
+                    <th>EndDate</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="event in events">
+                    <td>{{event.id}}</td>
+                    <td>{{event.name}}</td>
+                    <td>{{event.description}}</td>
+                    <td>{{event.asWillBe}}</td>
+                    <td>{{event.startDate}}</td>
+                    <td>{{event.endDate}}</td>
+                    <td>
+                        <button type="submit"
+                                ng-click="update(event.id)"
+                                class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(event.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

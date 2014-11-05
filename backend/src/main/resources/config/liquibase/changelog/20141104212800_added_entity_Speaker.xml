@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	
+	<property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    
+     <!--
+        Added the entity Speaker.
+    -->
+	<changeSet id="20141104212800" author="jhipster">
+		<createTable tableName="T_SPEAKER">
+			<column name="id" type="bigint">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+						
+			<column name="description" type="varchar(144)">
+				<constraints nullable="false" />
+			</column>			
+			
+			<column name="long_description" type="varchar(1000)" />
+				
+			<column name="photo" type="varchar(255)" />
+			
+			<column name="thumb" type="varchar(255)" />		
+		</createTable>
+		
+	</changeSet>
+</databaseChangeLog>

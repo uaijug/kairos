@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
@@ -17,11 +18,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  */
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Table(name="T_SPEAKER")
 public class Speaker implements Serializable {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1125243061308441060L;
 
 	@Id
@@ -128,7 +127,7 @@ public class Speaker implements Serializable {
 
 	/**
 	 * Return true if value is true or false if is false
-	 * 
+	 *
 	 * @param value
 	 *            the boolean value
 	 * @return true if is true

@@ -1,18 +1,19 @@
 <div>
 
-    <h2 ng-translate="speaker.title">Speakers</h2>
+    <h2 translate="speaker.speakers">Speakers</h2>
 
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveSpeakerModal" ng-click="clear()">
-        <span class="glyphicon glyphicon-flash"></span> <span ng-translate="speaker.create">Create a new Speaker</span>
-    </button>
+    <a class="btn btn-primary btn-lg" href="#/speaker/create">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="speaker.create">Create a new Speaker</span>
+    </a>
 
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th translate="entity.id">ID</th>
+                    <th translate="speaker.name">Name</th>
+                    <th translate="speaker.description.short">Short Description</th>
+                    <th translate="speaker.description.long">Long Description</th>
                     <th></th>
                 </tr>
             </thead>
@@ -21,16 +22,16 @@
                     <td>{{speaker.id}}</td>
                     <td>{{speaker.name}}</td>
                     <td>{{speaker.description}}</td>
+                     <td>{{speaker.longDescription}}</td>
                     <td>
-                        <button type="submit"
-                                ng-click="update(speaker.id)"
-                                class="btn">
-                            <span class="glyphicon glyphicon-pencil"></span> Edit
-                        </button>
-                        <button type="submit"
-                                ng-click="delete(speaker.id)"
-                                class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        <a href="#/speaker/{{speaker.id}}" class="btn btn-default">
+                            <span class="fa fa-folder-open"></span> <span translate="entity.view">View</span>
+                        </a>
+                        <a href="#/speaker/{{speaker.id}}" class="btn btn-default">
+                            <span class="fa fa-pencil"></span> <span translate="entity.edit">Edit</span>
+                        </a>
+                        <button type="submit" ng-click="delete(speaker.id)" class="btn btn-danger">
+                            <span class="fa fa-remove"></span> <span translate="entity.delete">Delete</span>
                         </button>
                     </td>
                 </tr>

@@ -14,7 +14,7 @@ kairosApp.controller('LanguageController', ['$scope','$translate','$location', f
             $location.search('lang', locale);           
         };
 
-        $scope.languages = {'pt':'Português','en':'English'};
+        $scope.languages = {'pt':'Portugu\u00EAs','en':'English'};
     }]);
 
 kairosApp.controller('MenuController', function ($scope) {
@@ -138,41 +138,68 @@ kairosApp.controller('SessionsController', function ($scope, resolvedSessions, S
         };
     });
 
- kairosApp.controller('MetricsController', function ($scope, MetricsService, HealthCheckService, ThreadDumpService) {
+ kairosApp.controller('HealthController', function ($scope, HealthCheckService) {
+     $scope.updatingHealth = true;
+
+     $scope.refresh = function() {
+         $scope.updatingHealth = true;
+         HealthCheckService.check().then(function(promise) {
+             $scope.healthCheck = promise;
+             $scope.updatingHealth = false;
+         },function(promise) {
+             $scope.healthCheck = promise.data;
+             $scope.updatingHealth = false;
+         });
+     }
+
+     $scope.refresh();
+
+     $scope.getLabelClass = function(statusState) {
+         if (statusState == 'UP') {
+             return "label-success";
+         } else {
+             return "label-danger";
+         }
+     }
+ });
+
+kairosApp.controller('MetricsController', function ($scope, MetricsService, HealthCheckService, ThreadDumpService) {
+        $scope.metrics = {};
+		$scope.updatingMetrics = true;
 
         $scope.refresh = function() {
-            HealthCheckService.check().then(function(promise) {
-                $scope.healthCheck = promise.data;
-            },function(promise) {
-                $scope.healthCheck = promise.data;
-            });
-
-            $scope.metrics = MetricsService.get();
-
-            $scope.metrics.$get({}, function(items) {
-
-                $scope.servicesStats = {};
-                $scope.cachesStats = {};
-                angular.forEach(items.timers, function(value, key) {
-                    if (key.indexOf("web.rest") != -1 || key.indexOf("service") != -1) {
-                        $scope.servicesStats[key] = value;
-                    }
-
-                    if (key.indexOf("net.sf.ehcache.Cache") != -1) {
-                        // remove gets or puts
-                        var index = key.lastIndexOf(".");
-                        var newKey = key.substr(0, index);
-
-                        // Keep the name of the domain
-                        index = newKey.lastIndexOf(".");
-                        $scope.cachesStats[newKey] = {
-                            'name': newKey.substr(index + 1),
-                            'value': value
-                        };
-                    }
-                });
-            });
+			$scope.updatingMetrics = true;
+			MetricsService.get().then(function(promise) {
+        		$scope.metrics = promise;
+				$scope.updatingMetrics = false;
+        	},function(promise) {
+        		$scope.metrics = promise.data;
+				$scope.updatingMetrics = false;
+        	});
         };
+
+		$scope.$watch('metrics', function(newValue, oldValue) {
+			$scope.servicesStats = {};
+            $scope.cachesStats = {};
+            angular.forEach(newValue.timers, function(value, key) {
+                if (key.indexOf("web.rest") != -1 || key.indexOf("service") != -1) {
+                    $scope.servicesStats[key] = value;
+                }
+
+                if (key.indexOf("net.sf.ehcache.Cache") != -1) {
+                    // remove gets or puts
+                    var index = key.lastIndexOf(".");
+                    var newKey = key.substr(0, index);
+
+                    // Keep the name of the domain
+                    index = newKey.lastIndexOf(".");
+                    $scope.cachesStats[newKey] = {
+                        'name': newKey.substr(index + 1),
+                        'value': value
+                    };
+                };
+            });
+		});
 
         $scope.refresh();
 
@@ -260,4 +287,3 @@ kairosApp.controller('AuditsController', function ($scope, $translate, $filter, 
             $scope.audits = data;
         });
     });
-

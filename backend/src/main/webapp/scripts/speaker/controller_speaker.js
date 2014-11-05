@@ -1,15 +1,15 @@
 'use strict';
 
-kairosApp.controller('SpeakerController', function ($scope, resolvedSpeaker, Speaker) {
+kairosApp.controller('SpeakerController', function ($scope, $location, resolvedSpeaker, resolvedSpeakers, Speaker) {
 
-        $scope.speakers = resolvedSpeaker;
+        $scope.speakers = resolvedSpeakers;
+        $scope.speaker = resolvedSpeaker;
 
         $scope.create = function () {
             Speaker.save($scope.speaker,
                 function () {
                     $scope.speakers = Speaker.query();
-                    $('#saveSpeakerModal').modal('hide');
-                    $scope.clear();
+                    $location.path("speaker");
                 });
         };
 
