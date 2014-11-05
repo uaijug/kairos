@@ -1,0 +1,6 @@
+<div class="form-group" ng-class="{ 'has-error': isError }">
+    <label for="{{for}}">
+    	<span class="fa fa-asterisk" ng-show="isRequired"></span> <span translate="{{labelTranslate}}">{{label}}</span>
+    </label>
+    <div class="controls" ng-transclude></div>
+</div>
