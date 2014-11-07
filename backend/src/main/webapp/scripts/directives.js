@@ -124,4 +124,11 @@ angular.module('kairosApp')
                 });
             }
         };
-    });
+    }).directive('holderImg', function() {
+        return {
+            link: function(scope, element, attrs) {
+                attrs.$set('data-src', attrs.holderImg);
+                Holder.run({images:element.get(0), nocss:true});
+            }
+        };
+    });;

@@ -27,12 +27,12 @@
                         <a href="#/speaker/{{speaker.id}}" class="btn btn-default">
                             <span class="fa fa-folder-open"></span> <span translate="entity.view">View</span>
                         </a>
-                        <a href="#/speaker/{{speaker.id}}" class="btn btn-default">
+                        <a href="#/speaker/{{speaker.id}}/edit" class="btn btn-default">
                             <span class="fa fa-pencil"></span> <span translate="entity.edit">Edit</span>
                         </a>
-                        <button type="submit" ng-click="delete(speaker.id)" class="btn btn-danger">
+                        <a class="btn btn-danger" uai-confirm confirm-ok="delete(speaker.id)" confirm-message-translate="confirm.delete" item="speaker.id">
                             <span class="fa fa-remove"></span> <span translate="entity.delete">Delete</span>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             </tbody>

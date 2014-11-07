@@ -1,51 +1,20 @@
 <div>
 
-    <h2 ng-translate="speaker.title">Speakers</h2>
-
-    <form name="form" role="form" novalidate
-          class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
-          ng-submit="create()">
-
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                    ng-click="clear()">&times;</button>
-            <h4 class="modal-title" id="mySpeakerLabel">Create or edit a Speaker</h4>
-        </div>
-        <div class="modal-body">
-
-            <div class="form-group">
-                <label>ID</label>
-                <input type="text" class="form-control" name="id"
-                       ng-model="speaker.id" readonly>
-            </div>
-
-            <div class="form-group">
-                <label>Name</label>
-                <input type="text" class="form-control" name="name"
-                       ng-model="speaker.name"  ng-minlength=1 ng-maxlength=255 required>
-            </div>
-
-            <div class="form-group">
-                <label>Description</label>
-                <input type="text" class="form-control" name="description"
-                       ng-model="speaker.description"  ng-minlength=1 ng-maxlength=144 required>
-            </div>
-
-            <div class="form-group">
-                <label for="">Long description</label>
-                <input type="text" class="form-control" name="longDescription" ng-model="speaker.longDescription">
-            </div>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-                <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-            </button>
-            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
-                <span class="glyphicon glyphicon-save"></span> Save
-            </button>
-        </div>
-    </form>
-
-    {{speakers | json}}
+    <div class="text-right">
+        <a href="#/speaker" class="btn btn-default">
+            <span class="fa fa-arrow-left"></span> <span ng-translate="speaker.title">Voltar</span>
+        </a>
+    </div>
+    <div class="page-header text-center">
+        <img ng-src="{{speaker.photo}}" ng-if="speaker.photo != null">
+        <img holder-img="holder.js/253x253" ng-if="speaker.photo == null">
+        <h1><span translate="speaker">Speaker</span>: {{speaker.name}}</h1>
+        <h2><small>{{speaker.description}}</small></h2>
+    </div>
+    <div class="text-center">
+        <span class="fa fa-quote-left">
+        <span ng-if="speaker.longDescription">{{speaker.longDescription}}</span>
+        <span ng-if="!speaker.longDescription">O palestrante não forneceu uma descrição longa.</span>
+        <span class="fa fa-quote-right">
+    </div>
 </div>

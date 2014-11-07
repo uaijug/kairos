@@ -3,7 +3,7 @@
 /* App Module */
 var httpHeaders;
 
-var kairosApp = angular.module('kairosApp', ['http-auth-interceptor', 'tmh.dynamicLocale',
+var kairosApp = angular.module('kairosApp', ['ui.bootstrap','http-auth-interceptor', 'tmh.dynamicLocale',
     'ngResource', 'ngRoute', 'ngCookies', 'kairosAppUtils', 'pascalprecht.translate', 'truncate']);
 
 kairosApp
@@ -125,7 +125,7 @@ kairosApp
 
             tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js')
             tmhDynamicLocaleProvider.useCookieStorage('NG_TRANSLATE_LANG_KEY');
-            
+
             httpHeaders = $httpProvider.defaults.headers;
         })
         .run(function($rootScope, $location, $http, AuthenticationSharedService, Session, USER_ROLES) {

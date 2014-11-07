@@ -16,7 +16,11 @@
     "angular-dynamic-locale": "0.1.21",
     "angular-i18n": "1.2.26",
     "swagger-ui": "2.0.18",
-    "fontawesome": "~4.2.0"    
+    "fontawesome": "~4.2.0",
+    "ngUpload": "~0.5.11",
+    "holderjs": "~2.4.1",
+    "ui.bootstrap": "~0.11.2",
+    "angular-bootstrap": "~0.11.2"
   },
   "devDependencies": {
     "angular-mocks": "1.2.26",

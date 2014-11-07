@@ -1,6 +1,7 @@
 <div class="form-group" ng-class="{ 'has-error': isError }">
     <label for="{{for}}">
-    	<span class="fa fa-asterisk" ng-show="isRequired"></span> <span translate="{{labelTranslate}}">{{label}}</span>
+    	<span class="fa fa-asterisk" ng-if="isRequired"></span> <span translate="{{labelTranslate}}">{{label}}</span>
     </label>
     <div class="controls" ng-transclude></div>
-</div>
+    <p ng-repeat="(error, active) in errors" class="help-block" ng-if="active && isError && showErrorMessages" translate="errors.{{error}}" translate-values='{fieldName: labelTranslateValue}'></p>
+</div> 

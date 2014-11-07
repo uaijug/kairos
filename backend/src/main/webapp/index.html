@@ -50,8 +50,19 @@
                                     <b class="caret"></b>
                                 </span>
                             </a>
-                            <ul class="dropdown-menu" ng-controller="MenuController">
-                                <li ng-switch-when="true"><a href="#/event"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;event</a></li>
+                            <ul class="dropdown-menu" ng-controller="MenuController" ng-show="isAuthorized(userRoles.admin)">
+                                <li ng-switch-when="true">
+                                    <a href="#/event">
+                                        <span class="fa fa-calendar-o"></span>&nbsp;
+                                        <span translate="global.menu.records.event">Events</span>
+                                    </a>
+                                </li>
+                                <li ng-switch-when="true">
+                                    <a href="#/speaker">
+                                        <span class="fa fa-user"></span>&nbsp;
+                                        <span translate="global.menu.records.speaker">Speakers</span>
+                                    </a>
+                                </li>
                                 <!-- JHipster will add entities to the menu here -->
                             </ul>
                         </li>
@@ -79,19 +90,6 @@
 
                                 <li ng-switch-when="false"><a href="#/register"><span class="glyphicon glyphicon-plus-sign"></span>
                                     &nbsp;<span translate="global.menu.account.register">Register</span></a></li>
-                            </ul>
-                        </li>
-                         <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-                                <span>
-                                    <span class="fa fa-folder-open"></span>
-                                    <span class="hidden-tablet" translate="global.menu.records">Entries</span>
-                                    <b class="caret"></b>
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#/speaker"><span class="fa fa-user"></span>
-                                    &#xA0;<span translate="global.menu.records.speaker">Speakers</span></a></li>
                             </ul>
                         </li>
                         <li ng-switch-when="true" ng-show="isAuthorized(userRoles.admin)" class="dropdown pointer" ng-controller="AdminController">
@@ -163,6 +161,9 @@
         <script src="bower_components/angular-translate/angular-translate.js"></script>
         <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
         <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/holderjs/holder.js"></script>
         <script src="scripts/http-auth-interceptor.js"></script>
         <script src="scripts/truncate.js"></script>
         <script src="scripts/utils.js"></script>
@@ -172,18 +173,6 @@
         <script src="scripts/services.js"></script>
         <script src="scripts/directives.js"></script>
         <script src="scripts/uai-directives.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
         <script src="scripts/speaker/router_speaker.js"></script>
         <script src="scripts/speaker/controller_speaker.js"></script>
         <script src="scripts/speaker/service_speaker.js"></script>

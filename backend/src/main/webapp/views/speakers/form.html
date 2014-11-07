@@ -3,31 +3,25 @@
           class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
           ng-submit="create()">
 
-        <div class="modal-header">            
+        <div class="modal-header">
             <h2 translate="speaker.create">Speakers</h2>
         </div>
         <div class="modal-body">
 
             <div class="form-group">
                 <label>ID</label>
-                <input type="text" class="form-control" name="id" ng-model="speaker.id" readonly>                
+                <input type="text" class="form-control" name="id" ng-model="speaker.id" readonly>
             </div>
 
             <uai-form-group label-translate="speaker.name" label="Name">
                 <input type="text" class="form-control" name="name" ng-model="speaker.name"  ng-minlength=2 ng-maxlength=255 required>
-                <uai-show-error validation-error-for="name" validation-error-type="required">O nome é obrigatório.</uai-show-error>
-                <uai-show-error validation-error-for="name" validation-error-type="minlength">O nome deve ter no mínimo 2 caracteres.</uai-show-error>
-                <uai-show-error validation-error-for="name" validation-error-type="maxlength ">O nome deve ter no máximo 255 caracteres.</uai-show-error>
             </uai-form-group>
 
-            <uai-form-group label-translate="speaker.description.short" label="Description">                
+            <uai-form-group label-translate="speaker.description.short" label="Description" show-custom-error-messages="false">
                 <input type="text" class="form-control" name="description" ng-model="speaker.description"  ng-minlength=10 ng-maxlength=144 required>
-                <uai-show-error validation-error-for="description" validation-error-type="required">A descrição é obrigatória.</uai-show-error>
-                <uai-show-error validation-error-for="description" validation-error-type="minlength">A descrição deve ter no mínimo 10 caracteres.</uai-show-error>
-                <uai-show-error validation-error-for="description" validation-error-type="maxlength ">A descrição deve ter no máximo 144 caracteres.</uai-show-error>
             </uai-form-group>
 
-            <uai-form-group label-translate="speaker.description.long" label="Long description">                
+            <uai-form-group label-translate="speaker.description.long" label="Long description">
                 <input type="text" class="form-control" name="longDescription" ng-model="speaker.longDescription">
             </uai-form-group>
 

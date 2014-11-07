@@ -49,7 +49,7 @@ kairosApp
                         authorizedRoles: [USER_ROLES.all]
                     }
                 }).
-                 when('/speaker/:speakerId/update', {
+                 when('/speaker/:speakerId/edit', {
                     templateUrl: 'views/speakers/form.html',
                     controller: 'SpeakerController',
                     resolve:{
