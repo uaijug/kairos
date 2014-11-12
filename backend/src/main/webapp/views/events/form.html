@@ -1,0 +1,47 @@
+<div>
+    <form name="form" role="form" novalidate
+          class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+          ng-submit="create()">
+
+        <div class="modal-header">
+            <h2 translate="event.create">Event</h2>
+        </div>
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label>ID</label>
+                <input type="text" class="form-control" name="id" ng-model="entity.id" readonly>
+            </div>
+
+            <uai-form-group label-translate="event.name" label="Name">
+                <input type="text" class="form-control" name="name" ng-model="event.name"  ng-minlength=2 ng-maxlength=255 required>
+            </uai-form-group>
+
+            <uai-form-group label-translate="event.description" label="Description">
+                <input type="text" class="form-control" name="description" ng-model="event.description"  ng-minlength=10 ng-maxlength=144 required>
+            </uai-form-group>
+
+            <uai-form-group label-translate="event.asWillBe" label="As will be">
+                <input type="text" class="form-control" name="asWillBe" ng-model="event.asWillBe" required>
+            </uai-form-group>
+
+
+            <uai-form-group label-translate="event.startDate" label="Starte date">
+                <input type="date" class="form-control" name="startDate" ng-model="event.startDate" required>
+            </uai-form-group>
+
+            <uai-form-group label-translate="event.endDate" label="End date">
+                <input type="date" class="form-control" name="endDate" ng-model="event.endDate" required>
+            </uai-form-group>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#/event" class="btn btn-default">
+                <span class="fa fa-ban"></span> <span ng-translate="action.cancel">Cancel</span>
+            </a>
+            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                <span class="fa fa-save"></span> <span ng-translate="action.save">Save</span>
+            </button>
+        </div>
+    </form>
+</div>

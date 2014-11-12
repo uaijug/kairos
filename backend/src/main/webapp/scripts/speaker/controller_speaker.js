@@ -1,6 +1,6 @@
 'use strict';
 
-kairosApp.controller('SpeakerController', function ($scope, $location, resolvedSpeaker, resolvedSpeakers, Speaker) {
+kairosApp.controller('SpeakerController', function ($scope, resolvedSpeaker, resolvedSpeakers, Speaker) {
 
         $scope.speakers = resolvedSpeakers;
         $scope.speaker = resolvedSpeaker;

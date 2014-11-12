@@ -10,14 +10,14 @@
 
             <div class="form-group">
                 <label>ID</label>
-                <input type="text" class="form-control" name="id" ng-model="speaker.id" readonly>
+                <input type="text" class="form-control" name="id" ng-model="entity.id" readonly>
             </div>
 
             <uai-form-group label-translate="speaker.name" label="Name">
                 <input type="text" class="form-control" name="name" ng-model="speaker.name"  ng-minlength=2 ng-maxlength=255 required>
             </uai-form-group>
 
-            <uai-form-group label-translate="speaker.description.short" label="Description" show-custom-error-messages="false">
+            <uai-form-group label-translate="speaker.description.short" label="Description">
                 <input type="text" class="form-control" name="description" ng-model="speaker.description"  ng-minlength=10 ng-maxlength=144 required>
             </uai-form-group>
 
@@ -28,10 +28,10 @@
         </div>
         <div class="modal-footer">
             <a href="#/speaker" class="btn btn-default">
-                <span class="fa fa-ban"></span> <span ng-translate="entity.cancel">Cancel</span>
+                <span class="fa fa-ban"></span> <span ng-translate="action.cancel">Cancel</span>
             </a>
             <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
-                <span class="fa fa-save"></span> <span ng-translate="entity.save">Save</span>
+                <span class="fa fa-save"></span> <span ng-translate="action.save">Save</span>
             </button>
         </div>
     </form>

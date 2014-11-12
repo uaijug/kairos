@@ -11,7 +11,7 @@ kairosApp.controller('AdminController', function ($scope) {
 kairosApp.controller('LanguageController', ['$scope','$translate','$location', function($scope, $translate, $location) {
         $scope.changeLanguage = function (locale) {
             $translate.use(locale);
-            $location.search('lang', locale);           
+            $location.search('lang', locale);
         };
 
         $scope.languages = {'pt':'Portugu\u00EAs','en':'English'};

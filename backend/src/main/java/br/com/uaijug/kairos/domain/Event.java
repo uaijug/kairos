@@ -20,6 +20,7 @@ import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 
 import br.com.uaijug.kairos.domain.util.CustomLocalDateSerializer;
+import br.com.uaijug.kairos.validation.AssertMethodAsTrue;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -32,6 +33,7 @@ import com.fasterxml.jackson.datatype.joda.deser.LocalDateDeserializer;
 @Entity
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @Table(name="T_EVENT")
+@AssertMethodAsTrue(value="isValidDateRange")
 public class Event implements Serializable {
 
 	private static final long serialVersionUID = -7153531826933994787L;
@@ -66,6 +68,7 @@ public class Event implements Serializable {
     @JoinTable(name="T_EVENT_SPEAKER",
     joinColumns=  @JoinColumn( name = "speaker_id"),
     inverseJoinColumns= @JoinColumn(name = "event_id") )
+
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Speaker> speakers = new HashSet<>();
@@ -124,6 +127,10 @@ public class Event implements Serializable {
 
     public void setSpeakers(Set<Speaker> speakers) {
         this.speakers = speakers;
+    }
+
+    public boolean isValidDateRange() {
+    	return this.startDate.isBefore(this.endDate) || this.startDate.isEqual(this.endDate);
     }
 
     @Override

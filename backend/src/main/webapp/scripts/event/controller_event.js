@@ -1,9 +1,9 @@
 'use strict';
 
-kairosApp.controller('EventController', function ($scope, resolvedEvent, Event, resolvedSpeaker) {
+kairosApp.controller('EventController', function ($scope, resolvedEvent, resolvedEvents, Event ) {
 
-        $scope.events = resolvedEvent;
-        $scope.speakers = resolvedSpeaker;
+        $scope.event = resolvedEvent;
+        $scope.events = resolvedEvents;
 
         $scope.create = function () {
             Event.save($scope.event,

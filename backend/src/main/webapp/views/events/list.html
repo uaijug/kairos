@@ -1,0 +1,43 @@
+<div>
+
+    <h2 translate="event.events">Events</h2>
+
+    <a class="btn btn-primary btn-lg" href="#/event/create">
+        <span class="glyphicon glyphicon-flash"></span> <span translate="event.create">Create a new Event</span>
+    </a>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="entity.id">ID</th>
+                    <th translate="event.name">Name</th>
+                    <th translate="event.description">Description</th>
+                    <th translate="event.startDate">Start date</th>
+                    <th translate="event.endDate">End date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="event in events">
+                    <td>{{event.id}}</td>
+                    <td>{{event.name}}</td>
+                    <td>{{event.description}}</td>
+                    <td>{{event.startDate}}</td>
+                    <td>{{event.endDate}}</td>
+                    <td>
+                        <a href="#/event/{{event.id}}" class="btn btn-default">
+                            <span class="fa fa-folder-open"></span> <span translate="action.view">View</span>
+                        </a>
+                        <a href="#/event/{{event.id}}/edit" class="btn btn-default">
+                            <span class="fa fa-pencil"></span> <span translate="action.edit">Edit</span>
+                        </a>
+                        <a class="btn btn-danger" uai-confirm confirm-ok="delete(event.id)" confirm-message-translate="confirm.delete" item="event.id">
+                            <span class="fa fa-remove"></span> <span translate="action.delete">Delete</span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

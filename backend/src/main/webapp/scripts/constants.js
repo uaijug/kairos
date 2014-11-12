@@ -13,17 +13,6 @@ Languages codes are ISO_639-1 codes, see http://en.wikipedia.org/wiki/List_of_IS
 They are written in English to avoid character encoding issues (not a perfect solution)
 */
 kairosApp.constant('LANGUAGES', {
-        'ca': 'Catalan',
-        'zh-tw': 'Chinese (traditional)',
-        'da': 'Danish',
         'en': 'English',
-        'fr': 'French',
-        'de': 'German',
-        'kr': 'Korean',
-        'pl': 'Polish',
-        'pt-br': 'Portuguese (Brazilian)',
-        'ru': 'Russian',
-        'es': 'Spanish',
-        'sv': 'Swedish',
-        'tr': 'Turkish'
+        'pt-br': 'Portuguese (Brazilian)'
     });
