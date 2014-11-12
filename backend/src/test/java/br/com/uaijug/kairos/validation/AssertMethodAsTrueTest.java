@@ -23,8 +23,8 @@ public class AssertMethodAsTrueTest {
 
 	@Before
 	public void init() {
-		ValidatorFactory vf = Validation.buildDefaultValidatorFactory();
-		this.validator = vf.getValidator();
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		this.validator = validatorFactory.getValidator();
 	}
 
 	@Test
@@ -34,8 +34,7 @@ public class AssertMethodAsTrueTest {
 		fakeEvent.end = new LocalDate(2001, 12, 31);
 
 		Set<ConstraintViolation<FakeEvent>> errors = this.validator.validate(fakeEvent);
-
-		assertThat("O validador não está validando corretamente", errors, is(empty()));
+		assertThat("A validação não deveria encontrar nenhum erro", errors, is(empty()));
 	}
 
 	@Test
@@ -45,8 +44,7 @@ public class AssertMethodAsTrueTest {
 		fakeEvent.end = new LocalDate(2000, 12, 31);
 
 		Set<ConstraintViolation<FakeEvent>> errors = this.validator.validate(fakeEvent);
-
-		assertThat("O validador não está validando corretamente", errors, hasSize(1));
+		assertThat("A validação deveria ter encontrado 1 erro", errors, hasSize(1));
 	}
 
 	@Test
@@ -56,8 +54,7 @@ public class AssertMethodAsTrueTest {
 		fakeEvent.end = new LocalDate(2000, 12, 31);
 
 		Set<ConstraintViolation<FakeEvent>> errors = this.validator.validate(fakeEvent);
-
-		assertThat("O validador não está validando corretamente", errors, is(empty()));
+		assertThat("A validação não deveria encontrar nenhum erro", errors, is(empty()));
 	}
 
 	@Test
@@ -67,8 +64,8 @@ public class AssertMethodAsTrueTest {
 		fakeEvent.end = new LocalDate(2000, 12, 31);
 
 		Set<ConstraintViolation<FakeEvent>> errors = this.validator.validate(fakeEvent);
+		assertThat("A validação deveria ter encontrado 1 erro", errors, hasSize(1));
 
-		assertThat("O validador não está validando corretamente", errors, hasSize(1));
 		ConstraintViolation<FakeEvent> error = errors.iterator().next();
 		String message = error.getMessage();
 		assertThat("A mensagem devera ser " + FakeEvent.INVALID_FAKE_EVENT_MESSAGE, message, is(equalTo(FakeEvent.INVALID_FAKE_EVENT_MESSAGE)));

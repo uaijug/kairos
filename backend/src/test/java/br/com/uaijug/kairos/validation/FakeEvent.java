@@ -13,4 +13,5 @@ public class FakeEvent {
 	public boolean isValid() {
 		return this.start.isBefore(this.end) || this.start.isEqual(this.end);
 	}
+
 }

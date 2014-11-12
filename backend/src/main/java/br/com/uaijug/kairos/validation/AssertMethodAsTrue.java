@@ -17,7 +17,9 @@ import br.com.uaijug.kairos.validation.validator.AssertMethodAsTrueValidator;
 @Constraint(validatedBy = {AssertMethodAsTrueValidator.class} )
 @Documented
 public @interface AssertMethodAsTrue {
-    String message() default "{invalid.condition}";
+    public static final String DEFAUL_INVALID_MESSAGE = "{invalid.condition}";
+
+	String message() default DEFAUL_INVALID_MESSAGE;
     String value() default "isValid";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
